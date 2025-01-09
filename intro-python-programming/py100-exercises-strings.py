@@ -39,10 +39,49 @@ def is_empty(str):
         return False
 
 # 7 - Is Empty or Blank?
-def is_empty_or_blank(str):
-    if not str:
-        return False
-    if all([elem == ' ' for elem in str]):
+def is_empty_or_blank(string):
+    if not string:
+        return True
+    elif all([elem == ' ' for elem in string]):
         return True 
     else:
         return False
+    
+"""LS
+def is_empty_or_blank(s):
+    return s.strip(' ') == ''
+
+def is_empty_or_blank(s):
+    return len(s.strip(' ')) == 0
+
+Both solutions use s.strip(' ') -> remove leading & trailing spaces & check if result is empty.
+
+Better:
+def is_empty_or_blank(str):
+    return not str or str.isspace()
+"""
+    
+print(is_empty_or_blank('mars'))  # False
+print(is_empty_or_blank('  '))    # True
+print(is_empty_or_blank(''))      # True
+
+# 8 - capitalize
+words = 'launch school tech & talk'
+
+print(words.title())
+
+# 9 - Check Prefix
+def starts_with(string, prefix):
+    return string.startswith(prefix)
+
+print(starts_with("launch", "la"))   # True
+print(starts_with("school", "sah"))  # False
+print(starts_with("school", "sch"))  # True
+
+# 10 - Count Substrings
+def count_substrings(string, substr):
+    return string.count(substr)
+
+print(count_substrings("lemon lemon lemon", "lemon")) # 3
+print(count_substrings("laLAlaLA", "la")) # 2
+print(count_substrings("launch", "uno")) # 0
